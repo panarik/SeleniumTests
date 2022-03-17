@@ -3,7 +3,7 @@
 <suite name="Suite1" verbose="1" >
     <test name="Test" >
         <packages>
-            <package name="com.github.panarik.appiumProject>"/>
+            <package name="com.github.panarik.seleniumTests>"/>
         </packages>
     </test>
 </suite>
