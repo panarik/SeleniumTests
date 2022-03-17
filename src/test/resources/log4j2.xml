@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Configuration xmlns="http://logging.apache.org/log4j/2.0/config">
+
+    <Properties>
+        <Property name="basePath">logs</Property>
+        <Property name="pattern">%-5p %d{yyyy-MM-dd HH:mm:ss} [%t] %C (%F:%L) - %m%n</Property>
+    </Properties>
+
+    <Appenders>
+        <Console name="STDOUT" target="SYSTEM_OUT">
+            <PatternLayout pattern="${pattern}"/>
+        </Console>
+        <File name="FILE1" fileName="${basePath}/logfile1.log" append="true">
+            <PatternLayout pattern="${pattern}"/>
+        </File>
+        <RollingFile name="admins" filePattern="${basePath}/%d{MM-dd-yyyy}-admins.log">
+            <MarkerFilter marker="ADMIN" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="${pattern}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+                <SizeBasedTriggeringPolicy size="32 MB" />
+                <OnStartupTriggeringPolicy/>
+            </Policies>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <Root level="trace">
+            <AppenderRef ref="STDOUT"/>
+            <AppenderRef ref="FILE1"/>
+        </Root>
+        <Logger name="admins" level="warn" additivity="">
+            <AppenderRef ref="admins" />
+        </Logger>
+    </Loggers>
+</Configuration>
