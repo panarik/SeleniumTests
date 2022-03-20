@@ -21,24 +21,57 @@ public class AvitoPage extends BasePage {
 
     /**
      * open page 'avito.ru'.
+     * @return can use next method from {@link AvitoPage}.
      */
     public AvitoPage getPage() {
         super.getPage("https://www.avito.ru");
         return this;
     }
 
+    /**
+     *
+     * @return can use next method from {@link AvitoPage}.
+     */
     public AvitoPage goToPersonalStaff() {
         click(PERSONAL_STAFF);
         return this;
     }
 
+    /**
+     *
+     * @param line
+     * @return can use next method from {@link AvitoPage}.
+     */
     public AvitoPage search(String line) {
         super.search(SEARCH, line);
         return this;
     }
 
+    /**
+     *
+     * @return can use next method from {@link AvitoPage}.
+     */
     public AvitoPage deleteAllFromSearchField() {
         deleteAll(SEARCH);
+        return this;
+    }
+
+    /**
+     *
+     * @return can use next method from {@link AvitoPage}.
+     */
+    public AvitoPage contextClickSearch() {
+        contextClick(SEARCH);
+        return this;
+    }
+
+    /**
+     * Move cursor to the search field.
+     *
+     * @return can use next method from {@link AvitoPage}.
+     */
+    public AvitoPage moveToSearch() {
+        hoverItem(SEARCH);
         return this;
     }
 }
