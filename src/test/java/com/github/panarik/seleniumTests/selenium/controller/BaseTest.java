@@ -1,5 +1,6 @@
-package com.github.panarik.seleniumTests.selenium.base;
+package com.github.panarik.seleniumTests.selenium.controller;
 
+import com.github.panarik.seleniumTests.selenium.controller.DriverBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

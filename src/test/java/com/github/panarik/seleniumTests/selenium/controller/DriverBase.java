@@ -1,4 +1,4 @@
-package com.github.panarik.seleniumTests.selenium.base;
+package com.github.panarik.seleniumTests.selenium.controller;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

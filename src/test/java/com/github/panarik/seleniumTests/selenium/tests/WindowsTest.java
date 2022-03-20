@@ -1,6 +1,6 @@
-package com.github.panarik.seleniumTests.selenium;
+package com.github.panarik.seleniumTests.selenium.tests;
 
-import com.github.panarik.seleniumTests.selenium.base.BaseTest;
+import com.github.panarik.seleniumTests.selenium.controller.BaseTest;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
