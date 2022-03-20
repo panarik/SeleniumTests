@@ -16,7 +16,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.*;
 
 public class WaitTest extends BaseTest {
 
-    private final WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    private final WebDriverWait wait = new WebDriverWait(controller, Duration.ofSeconds(10));
     private WebElement search;
 
     @BeforeMethod
@@ -26,7 +26,7 @@ public class WaitTest extends BaseTest {
     //неявное ожидание
     @Test
     public void test_Implicit_ThreadSleep() {
-        driver.get("https://www.easemytrip.com/");
+        controller.get("https://www.easemytrip.com/");
         picDate();
         try {
             Thread.sleep(1000);
@@ -35,25 +35,25 @@ public class WaitTest extends BaseTest {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        driver.findElement(By.cssSelector(".card.fltResult"));
+        controller.findElement(By.cssSelector(".card.fltResult"));
     }
 
     //неявное ожидание
     @Test
     public void test_Implicit_driverWait() {
-        driver.get("https://www.easemytrip.com/");
+        controller.get("https://www.easemytrip.com/");
         picDate();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
+        controller.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
         search.click();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(7));
-        driver.findElement(By.cssSelector(".card.fltResult"));
+        controller.manage().timeouts().implicitlyWait(Duration.ofSeconds(7));
+        controller.findElement(By.cssSelector(".card.fltResult"));
     }
 
     //явное ожидание (появления)
     @Test
     public void test_explicit() {
-        driver.get("https://www.easemytrip.com");
-        driver.manage().window().fullscreen();
+        controller.get("https://www.easemytrip.com");
+        controller.manage().window().fullscreen();
         picDate();
         wait.until(visibilityOf(search));
         search.click();
@@ -63,12 +63,12 @@ public class WaitTest extends BaseTest {
     //явное ожидание (исчезновения)
     @Test
     public void test_disappear(){
-        driver.get("https://pagination.js.org");
-        List<WebElement> elements = driver.findElements(By.xpath("//div[@id='demo1']/div[@class='data-container']//li"));
-        List<WebElement> pages = driver.findElements(By.xpath("//div[@class='paginationjs']//li"));
+        controller.get("https://pagination.js.org");
+        List<WebElement> elements = controller.findElements(By.xpath("//div[@id='demo1']/div[@class='data-container']//li"));
+        List<WebElement> pages = controller.findElements(By.xpath("//div[@class='paginationjs']//li"));
         pages.get(2).click(); //перелистываем на вторую страницу
         wait.until(stalenessOf(elements.get(5))); //ждем пока пропадет первая страница (пятый элемент)
-        elements = driver.findElements(By.xpath("//div[@id='demo1']/div[@class='data-container']//li")); //получаем список с обновленной страницы
+        elements = controller.findElements(By.xpath("//div[@id='demo1']/div[@class='data-container']//li")); //получаем список с обновленной страницы
         for(WebElement e : elements) {
             System.out.print(" :"+e.getText());
         }
@@ -78,13 +78,13 @@ public class WaitTest extends BaseTest {
 
 
     private void picDate() {
-        search = driver.findElement(By.cssSelector("[value='Search']"));
+        search = controller.findElement(By.cssSelector("[value='Search']"));
         //выбираем дату вылета
-        driver.findElement(By.id("ddate")).click();
-        driver.findElement(By.cssSelector("[id='" + getDate(1) + "/11/2021']")).click();
+        controller.findElement(By.id("ddate")).click();
+        controller.findElement(By.cssSelector("[id='" + getDate(1) + "/11/2021']")).click();
         //выбираем дату прилета
-        driver.findElement(By.id("rdate")).click();
-        driver.findElement(By.cssSelector("[id='" + getDate(2) + "/11/2021']")).click();
+        controller.findElement(By.id("rdate")).click();
+        controller.findElement(By.cssSelector("[id='" + getDate(2) + "/11/2021']")).click();
     }
 
     private String getDate(int appendDays) {

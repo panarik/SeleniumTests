@@ -11,12 +11,12 @@ public class AttributeTest extends BaseTest {
 
     @BeforeMethod
     public void init() {
-        driver.get("https://www.avito.ru");
+        controller.get("https://www.avito.ru");
     }
 
     @Test
     public void firstAttribute() {
-        WebElement linkStaff = driver.findElement(By.xpath("//a[text()='Личные вещи']"));
+        WebElement linkStaff = controller.findElement(By.xpath("//a[text()='Личные вещи']"));
         Assert.assertEquals(linkStaff.getAttribute("href"), "https://www.avito.ru/moskva/lichnye_veschi");
         Assert.assertEquals(linkStaff.getAttribute("offsetWidth"), "88");
         Assert.assertEquals(linkStaff.getAttribute("offsetHeight"), "15");
@@ -25,7 +25,7 @@ public class AttributeTest extends BaseTest {
     @Test
     public void secondAttribute() {
         goToTransport();
-        WebElement selectTransport2 = driver.findElement(By.xpath("//select[@id='category']//option[text()='Транспорт']"));
+        WebElement selectTransport2 = controller.findElement(By.xpath("//select[@id='category']//option[text()='Транспорт']"));
         Assert.assertEquals(selectTransport2.getAttribute("selected"), "true");
     }
 }

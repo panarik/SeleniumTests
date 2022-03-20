@@ -1,20 +1,26 @@
 package com.github.panarik.seleniumTests.selenium.controller.tools;
 
-import com.github.panarik.seleniumTests.selenium.controller.BaseTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
+import static com.github.panarik.seleniumTests.selenium.controller.BaseTest.controller;
 import static org.openqa.selenium.support.ui.ExpectedConditions.*;
 
-public class Wait extends BaseTest {
+/**
+ * This class created only for waiter examples.
+ */
+public class WaitExamples {
 
-    private WebElement element;
-    private List<WebElement> elements;
+    private WebElement element; //ToDo: Need for specify.
+    private List<WebElement> elements; //ToDo: Need for specify.
     private static final By locator = By.xpath("some xPath");
 
     private void waitersExample() {
+
+        WebDriverWait wait = controller.get().getWait();
 
         // Attribute
         wait.until(attributeContains(element, "id", "contains some"));

@@ -14,24 +14,24 @@ public class ActionsTest extends BaseTest {
 
     @Test
     public void click() {
-        driver.get("https://www.avito.ru");
-        WebElement section = driver.findElement(By.xpath("//a[text()='Личные вещи']"));
+        controller.get("https://www.avito.ru");
+        WebElement section = controller.findElement(By.xpath("//a[text()='Личные вещи']"));
         section.click();
     }
 
     @Test
     public void input() {
-        driver.get("https://www.avito.ru");
-        WebElement input = driver.findElement(By.xpath("//input[@data-marker='search-form/suggest']"));
+        controller.get("https://www.avito.ru");
+        WebElement input = controller.findElement(By.xpath("//input[@data-marker='search-form/suggest']"));
         input.sendKeys("test 123");
         deleteAll(input); //custom input
     }
 
     @Test
     public void actionContext() {
-        driver.get("https://www.avito.ru");
-        WebElement input = driver.findElement(By.xpath("//input[@data-marker='search-form/suggest']"));
-        Actions menu = new Actions(driver);
+        controller.get("https://www.avito.ru");
+        WebElement input = controller.findElement(By.xpath("//input[@data-marker='search-form/suggest']"));
+        Actions menu = new Actions(controller);
         menu
                 .contextClick(input)
                 .build().perform();
@@ -44,9 +44,9 @@ public class ActionsTest extends BaseTest {
 
     @Test
     public void actionMove() {
-        driver.get("https://www.avito.ru");
-        WebElement input = driver.findElement(By.xpath("//input[@data-marker='search-form/suggest']"));
-        Actions move = new Actions(driver);
+        controller.get("https://www.avito.ru");
+        WebElement input = controller.findElement(By.xpath("//input[@data-marker='search-form/suggest']"));
+        Actions move = new Actions(controller);
         move.moveToElement(input);
         try {
             Thread.sleep(2000);
@@ -57,12 +57,12 @@ public class ActionsTest extends BaseTest {
 
     @Test
     public void actionComplex() {
-        driver.get("https://crossbrowsertesting.github.io/drag-and-drop.html");
-        driver.manage().window().fullscreen();
-        WebElement draggable = driver.findElement(By.xpath("//div[@id='draggable']"));
-        WebElement droppable = driver.findElement(By.xpath("//div[@id='droppable']"));
+        controller.get("https://crossbrowsertesting.github.io/drag-and-drop.html");
+        controller.manage().window().fullscreen();
+        WebElement draggable = controller.findElement(By.xpath("//div[@id='draggable']"));
+        WebElement droppable = controller.findElement(By.xpath("//div[@id='droppable']"));
 
-        Actions action = new Actions(driver);
+        Actions action = new Actions(controller);
         action
                 .moveToElement(draggable)
                 .clickAndHold()

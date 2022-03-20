@@ -14,13 +14,13 @@ public class ModalsTest extends BaseTest {
     @BeforeMethod
     public void init() {
         //run VisualStudio live server plugin for open html page from file
-        driver.get("http://127.0.0.1:5500/modals.html");
+        controller.get("http://127.0.0.1:5500/modals.html");
     }
 
 
     @Test
     public void test_alert() {
-        WebElement element1 = driver.findElement(By.id("a"));
+        WebElement element1 = controller.findElement(By.id("a"));
         element1.click();
         Alert alert = wait.until(alertIsPresent());
         System.out.println(alert.getText());
@@ -29,7 +29,7 @@ public class ModalsTest extends BaseTest {
 
     @Test
     public void test_modal() {
-        WebElement element2 = driver.findElement(By.id("b"));
+        WebElement element2 = controller.findElement(By.id("b"));
         element2.click(); //run modal window
         Alert modal = wait.until(alertIsPresent());
         modal.sendKeys("test 1234!");
@@ -41,7 +41,7 @@ public class ModalsTest extends BaseTest {
 
     @Test
     public void test_confirm() {
-        WebElement element3 = driver.findElement(By.id("c"));
+        WebElement element3 = controller.findElement(By.id("c"));
         element3.click();
         Alert confirm = wait.until(alertIsPresent());
         System.out.println(confirm.getText());
