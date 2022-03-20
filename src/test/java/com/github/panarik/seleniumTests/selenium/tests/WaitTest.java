@@ -1,6 +1,6 @@
 package com.github.panarik.seleniumTests.selenium.tests;
 
-import com.github.panarik.seleniumTests.selenium.controller.BaseTest;
+import com.github.panarik.seleniumTests.selenium.tests.base.BaseTest;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;

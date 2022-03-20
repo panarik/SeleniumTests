@@ -1,6 +1,6 @@
 package com.github.panarik.seleniumTests.selenium.tests;
 
-import com.github.panarik.seleniumTests.selenium.controller.BaseTest;
+import com.github.panarik.seleniumTests.selenium.tests.base.BaseTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -8,23 +8,22 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
-import java.util.ArrayList;
 
 public class ActionsTest extends BaseTest {
 
     @Test
-    public void click() {
-        controller.get("https://www.avito.ru");
-        WebElement section = controller.findElement(By.xpath("//a[text()='Личные вещи']"));
-        section.click();
+    public void goToStaff() {
+        avito
+                .getPage()
+                .goToPersonalStaff();
     }
 
     @Test
     public void input() {
-        controller.get("https://www.avito.ru");
-        WebElement input = controller.findElement(By.xpath("//input[@data-marker='search-form/suggest']"));
-        input.sendKeys("test 123");
-        deleteAll(input); //custom input
+        avito
+                .getPage() // Step 1: Open page 'avito.ru'.
+                .search("test 123") // Step 2: Open page 'avito.ru'.
+                .deleteAllFromSearchField(); // Step 3: delete all text from search field.
     }
 
     @Test
@@ -79,12 +78,4 @@ public class ActionsTest extends BaseTest {
                 .perform();
     }
 
-    private void deleteAll(WebElement input) {
-        int sum = input.getAttribute("value").length();
-        ArrayList<Keys> keysList = new ArrayList<>();
-        for (int i = 0; i<sum; i++) {
-            keysList.add(Keys.BACK_SPACE);
-        }
-        input.sendKeys(keysList.toArray(new Keys[keysList.size()]));
-    }
 }

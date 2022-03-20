@@ -1,6 +1,6 @@
 package com.github.panarik.seleniumTests.selenium.tests;
 
-import com.github.panarik.seleniumTests.selenium.controller.BaseTest;
+import com.github.panarik.seleniumTests.selenium.tests.base.BaseTest;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -14,7 +14,7 @@ public class ModalsTest extends BaseTest {
     @BeforeMethod
     public void init() {
         //run VisualStudio live server plugin for open html page from file
-        controller.get("http://127.0.0.1:5500/modals.html");
+        controller.get().getDriver().get("http://127.0.0.1:5500/modals.html");
     }
 
 

@@ -1,5 +1,6 @@
-package com.github.panarik.seleniumTests.selenium.controller;
+package com.github.panarik.seleniumTests.selenium.tests.base;
 
+import com.github.panarik.seleniumTests.selenium.controller.Controller;
 import com.github.panarik.seleniumTests.selenium.model.AvitoPage;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -33,4 +34,5 @@ public class BaseTest {
         System.out.println("Shutdown driver.");
         controller.get().getDriver().quit();
     }
+
 }

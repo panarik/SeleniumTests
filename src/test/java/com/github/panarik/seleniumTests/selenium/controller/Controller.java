@@ -19,11 +19,11 @@ public class Controller {
         return this.wait;
     }
 
-    WebDriver setupDriver() {
+    public void setupDriver() {
         System.setProperty("webdriver.chrome.driver", "C:\\tools\\driver\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(4));
-        return driver;
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
     }
 
 }
