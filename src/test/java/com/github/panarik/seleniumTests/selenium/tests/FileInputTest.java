@@ -5,11 +5,9 @@ import org.testng.annotations.BeforeMethod;
 
 public class FileInputTest extends BaseTest {
 
-    @BeforeMethod
-    public void init() {
-        controller.get("https://mdbootstrap.com/docs/b4/jquery/forms/file-input");
-    }
-
-
+//    @BeforeMethod
+//    public void init() {
+//        controller.get("https://mdbootstrap.com/docs/b4/jquery/forms/file-input");
+//    }
 
 }

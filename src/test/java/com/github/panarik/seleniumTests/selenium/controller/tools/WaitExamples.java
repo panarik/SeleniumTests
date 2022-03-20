@@ -6,7 +6,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
-import static com.github.panarik.seleniumTests.selenium.tests.base.BaseTest.controller;
+import static com.github.panarik.seleniumTests.selenium.controller.Controller.getWait;
 import static org.openqa.selenium.support.ui.ExpectedConditions.*;
 
 /**
@@ -20,7 +20,7 @@ public class WaitExamples {
 
     private void waitersExample() {
 
-        WebDriverWait wait = controller.get().getWait();
+        WebDriverWait wait = getWait();
 
         // Attribute
         wait.until(attributeContains(element, "id", "contains some"));

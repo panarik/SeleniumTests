@@ -5,9 +5,6 @@ plugins {
 group 'org.example'
 version '1.0-SNAPSHOT'
 
-//set java version
-sourceCompatibility = JavaVersion.VERSION_1_8
-targetCompatibility = JavaVersion.VERSION_1_8
 //set encoding
 compileJava.options.encoding = 'UTF-8'
 compileTestJava.options.encoding = 'UTF-8'

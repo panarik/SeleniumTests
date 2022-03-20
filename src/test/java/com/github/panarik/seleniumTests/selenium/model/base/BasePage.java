@@ -1,6 +1,5 @@
 package com.github.panarik.seleniumTests.selenium.model.base;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -8,7 +7,7 @@ import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
 
-import static com.github.panarik.seleniumTests.selenium.tests.base.BaseTest.controller;
+import static com.github.panarik.seleniumTests.selenium.controller.Controller.getDriver;
 
 public class BasePage {
 
@@ -68,8 +67,5 @@ public class BasePage {
         return getDriver().findElement(By.xpath(item.getXpath()));
     }
 
-    private WebDriver getDriver() {
-        return controller.get().getDriver();
-    }
 
 }

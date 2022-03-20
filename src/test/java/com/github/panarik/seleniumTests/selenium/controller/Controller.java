@@ -8,22 +8,23 @@ import java.time.Duration;
 
 public class Controller {
 
-    private WebDriver driver; //driver for Selenium tests
-    private WebDriverWait wait;
+    private static WebDriver driver; //driver for Selenium tests
+    private static WebDriverWait wait;
 
-    public WebDriver getDriver() {
-        return this.driver;
+    public static WebDriver getDriver() {
+        return driver;
     }
 
-    public WebDriverWait getWait() {
-        return this.wait;
+    public static WebDriverWait getWait() {
+        return wait;
     }
 
-    public void setupDriver() {
+    public static void setupDriver() {
         System.setProperty("webdriver.chrome.driver", "C:\\tools\\driver\\chromedriver.exe");
         driver = new ChromeDriver();
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(4));
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
 }
